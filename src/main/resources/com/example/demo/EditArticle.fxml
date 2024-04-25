@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.controller.EditArticle">
+   <children>
+      <Label layoutX="433.0" layoutY="172.0" text="IMAGE" />
+      <Label layoutX="108.0" layoutY="252.0" text="CATEGORY" />
+      <Label layoutX="96.0" layoutY="218.0" text="METACONTENT" />
+      <Label layoutX="117.0" layoutY="174.0" text="CONTENT" />
+      <Label layoutX="132.0" layoutY="139.0" text="TITLE" />
+      <Label layoutX="112.0" layoutY="290.0" text="CREATEDAT" />
+      <TextField fx:id="imgeTF" layoutX="384.0" layoutY="203.0" />
+      <TextField fx:id="categoryTE" layoutX="181.0" layoutY="248.0" />
+      <TextField fx:id="metacontentTE" layoutX="181.0" layoutY="214.0" />
+      <TextField fx:id="contentTE" layoutX="181.0" layoutY="170.0" />
+      <TextField fx:id="titleTE" layoutX="181.0" layoutY="135.0" />
+      <Button fx:id="backarticlebutton" layoutX="196.0" layoutY="337.0" mnemonicParsing="false" onAction="#backarticleB" text="Back To List" />
+      <DatePicker fx:id="createdatTE" layoutX="181.0" layoutY="286.0" />
+      <TextField fx:id="idTE" layoutX="181.0" layoutY="99.0" />
+      <Label layoutX="132.0" layoutY="103.0" text="ID" />
+      <Button fx:id="editarticlebutton" layoutX="293.0" layoutY="337.0" mnemonicParsing="false" onAction="#editarticleB" style="-fx-background-color: #1B365C;" text="SAVE" textFill="WHITE" />
+      <Text fill="#1c365c" layoutX="198.0" layoutY="70.0" strokeLineCap="ROUND" strokeType="OUTSIDE" strokeWidth="0.0" text="EDIT ARTICLE" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>
