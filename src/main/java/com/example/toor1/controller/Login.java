@@ -29,30 +29,30 @@ public class Login {
 
     @FXML
     void loginB(ActionEvent event) {
-        // Get the email and password entered by the user
         String email = emailLOGIN.getText();
         String password = passwordLOGIN.getText();
 
-        // Initialize the UserService
         UserService userService = new UserService();
 
         try {
-            // Check if the user exists and the password matches
             User user = userService.getByEmail(email);
 
             if (user != null && user.getPassword().equals(password)) {
-                // Redirect to HomeUser if the login is successful
-                Parent root = FXMLLoader.load(getClass().getResource("/HomeUser.fxml"));
-                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                Scene scene = new Scene(root);
-                stage.setScene(scene);
-                stage.show();
+                if (user.isBlocked()) { // Utilisez le booléen pour vérifier le blocage
+                    showAlert("Accès refusé", "Votre compte est bloqué.");
+                } else {
+                    Parent root = FXMLLoader.load(getClass().getResource("/HomeUser.fxml"));
+                    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                    Scene scene = new Scene(root);
+                    stage.setScene(scene);
+                    stage.show();
+                }
             } else {
-                // Show alert if login fails
-                showAlert("Login Failed", "Invalid email or password. Please try again.");
+                showAlert("Connexion échouée", "E-mail ou mot de passe invalide.");
             }
         } catch (Exception e) {
-            showAlert("Error", "An error occurred during login: " + e.getMessage());
+            e.printStackTrace(); // Affiche l'exception pour aider au diagnostic
+            showAlert("Erreur", "Une erreur s'est produite lors de la connexion.");
         }
     }
 

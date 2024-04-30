@@ -129,11 +129,12 @@ public class UserService implements IService<User> {
     public User getByEmail(String email) throws SQLException {
         String sql = "SELECT * FROM user WHERE email = ?";
         try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
-            preparedStatement.setString(1, email); // Set email as parameter
-            ResultSet resultSet = preparedStatement.executeQuery(); // Execute query
+            preparedStatement.setString(1, email);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                // Interprétez la valeur du champ "is_blocked" comme un booléen
+                boolean isBlocked = resultSet.getInt("is_blocked") == 1; // Si 1, c'est bloqué
 
-            if (resultSet.next()) { // If a record is found
-                // Create and return a User object from the ResultSet
                 return new User(
                         resultSet.getInt("id"),
                         resultSet.getString("email"),
@@ -142,16 +143,71 @@ public class UserService implements IService<User> {
                         resultSet.getString("photo"),
                         resultSet.getString("name"),
                         resultSet.getString("lastname"),
-                        resultSet.getDate("birthdate"), // Handle null-check
+                        resultSet.getDate("birthdate"),
+                        resultSet.getString("address"),
+                        resultSet.getString("country"),
+                        isBlocked // Utilisez le booléen interprété
+                );
+            }
+            return null;
+        }
+    }
+
+    public List<User> getUsersByName(String name) throws SQLException {
+        String sql = "SELECT * FROM user WHERE name LIKE ? OR lastname LIKE ?"; // Use partial matching with LIKE
+        try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+            preparedStatement.setString(1, "%" + name + "%"); // Add wildcard for partial matching
+            preparedStatement.setString(2, "%" + name + "%");
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+            List<User> users = new ArrayList<>();
+
+            while (resultSet.next()) {
+                User user = new User(
+                        resultSet.getInt("id"),
+                        resultSet.getString("email"),
+                        resultSet.getString("roles"),
+                        resultSet.getString("password"),
+                        resultSet.getString("photo"),
+                        resultSet.getString("name"),
+                        resultSet.getString("lastname"),
+                        resultSet.getDate("birthdate"), // Handle null-check here
                         resultSet.getString("address"),
                         resultSet.getString("country")
                 );
-            } else {
-                return null; // No user with this email found
+                users.add(user);
             }
-        } catch (SQLException e) {
-            System.err.println("Error in getByEmail: " + e.getMessage());
-            throw e; // Rethrow exception
+            return users; // Return the list of users matching the search query
+        }
+    }
+    // Méthode pour bloquer un utilisateur
+    public void blockUser(int userId) throws SQLException {
+        String sql = "UPDATE user SET is_blocked = TRUE WHERE id = ?";
+        try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+            preparedStatement.setInt(1, userId);
+            preparedStatement.executeUpdate();
+        }
+    }
+
+    // Méthode pour débloquer un utilisateur
+    public void unblockUser(int userId) throws SQLException {
+        String sql = "UPDATE user SET is_blocked = FALSE WHERE id = ?";
+        try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+            preparedStatement.setInt(1, userId);
+            preparedStatement.executeUpdate();
+        }
+    }
+
+    // Méthode pour vérifier si un utilisateur est bloqué
+    public boolean isUserBlocked(int userId) throws SQLException {
+        String sql = "SELECT is_blocked FROM user WHERE id = ?";
+        try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+            preparedStatement.setInt(1, userId);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                return resultSet.getBoolean("is_blocked");
+            }
+            return false; // Par défaut, l'utilisateur n'est pas bloqué
         }
     }
 }

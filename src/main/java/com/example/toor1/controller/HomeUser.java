@@ -14,6 +14,11 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
+import java.sql.SQLException;
+import javafx.scene.control.Alert;
+import javafx.scene.control.TextField;
+
+
 public class HomeUser {
 
     @FXML
@@ -192,4 +197,79 @@ public class HomeUser {
         }
     }
 
+    @FXML
+    private TextField searchTextField;
+
+
+    public void searchByNameB(ActionEvent actionEvent) {
+
+        String searchQuery = searchTextField.getText(); // Get the text from the search field
+
+        if (searchQuery != null && !searchQuery.trim().isEmpty()) {
+            UserService userService = new UserService();
+            ObservableList<User> filteredUsers;
+
+            try {
+                // Use a service method to fetch users based on a partial match with the name
+                filteredUsers = FXCollections.observableArrayList(userService.getUsersByName(searchQuery));
+
+                // Set the filtered list to the TableView
+                userTableView.setItems(filteredUsers);
+            } catch (SQLException e) {
+                e.printStackTrace(); // Handle SQL exception
+                Alert errorAlert = new Alert(Alert.AlertType.ERROR, "Error retrieving users: " + e.getMessage());
+                errorAlert.show();
+            }
+        } else {
+            Alert noInputAlert = new Alert(Alert.AlertType.WARNING, "Please enter a name to search.");
+            noInputAlert.show();
+        }
+    }
+
+    @FXML
+    public void blockUser(ActionEvent actionEvent) {
+        User selectedUser = userTableView.getSelectionModel().getSelectedItem();
+
+        if (selectedUser != null) {
+            UserService userService = new UserService();
+            try {
+                userService.blockUser(selectedUser.getId());
+                System.out.println("Utilisateur bloqué avec succès.");
+            } catch (SQLException e) {
+                System.err.println("Erreur lors du blocage de l'utilisateur: " + e.getMessage());
+            }
+        } else {
+            System.out.println("Aucun utilisateur sélectionné.");
+        }
+    }
+
+    @FXML
+    public void unblockUser(ActionEvent actionEvent) {
+        User selectedUser = userTableView.getSelectionModel().getSelectedItem();
+
+        if (selectedUser != null) {
+            UserService userService = new UserService();
+            try {
+                userService.unblockUser(selectedUser.getId());
+                System.out.println("Utilisateur débloqué avec succès.");
+            } catch (SQLException e) {
+                System.err.println("Erreur lors du déblocage de l'utilisateur: " + e.getMessage());
+            }
+        } else {
+            System.out.println("Aucun utilisateur sélectionné.");
+        }
+    }
+
+    @FXML
+    void LogoutB(ActionEvent event) { // Ajoutez le paramètre ActionEvent
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/Login.fxml"));
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (Exception e) {
+            System.err.println("Error loading Login.fxml: " + e.getMessage()); // Correction de l'erreur de chargement
+        }
+    }
 }

@@ -46,6 +46,8 @@
       <artifactId>mysql-connector-j</artifactId>
       <version>8.3.0</version>
     </dependency>
+
+
   </dependencies>
 
   <build>
@@ -75,6 +77,7 @@
               <noManPages>true</noManPages>
               <stripDebug>true</stripDebug>
               <noHeaderFiles>true</noHeaderFiles>
+
             </configuration>
           </execution>
         </executions>

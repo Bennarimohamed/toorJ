@@ -13,6 +13,8 @@ public class User {
     private Date birthdate;  // Use LocalDate for date representation
     private String address;
     private String country;
+    private boolean isBlocked;
+
 
     // Constructors
     public User(int id, String email, String roles, String password, String photo, String name,
@@ -40,6 +42,12 @@ public class User {
         this.birthdate = birthdate;
         this.address = address;
         this.country = country;
+    }
+
+    public User(int id, String email, String roles, String password, String photo, String name, String lastname,
+                Date birthdate, String address, String country, boolean isBlocked) {
+        this(id, email, roles, password, photo, name, lastname, birthdate, address, country); // Appel au constructeur précédent
+        this.isBlocked = isBlocked; // Ajouter le champ supplémentaire
     }
 
     public User() {}
@@ -123,6 +131,15 @@ public class User {
 
     public void setCountry(String country) {
         this.country = country;
+    }
+
+    // Getters and setters for isBlocked
+    public boolean isBlocked() {
+        return isBlocked;
+    }
+
+    public void setBlocked(boolean isBlocked) {
+        this.isBlocked = isBlocked;
     }
 
     // toString method
