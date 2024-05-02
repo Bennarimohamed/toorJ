@@ -27,6 +27,8 @@ public class Login {
     @FXML
     private Button registerButton; // Button for the registration action
 
+
+
     @FXML
     void loginB(ActionEvent event) {
         String email = emailLOGIN.getText();
@@ -76,4 +78,6 @@ public class Login {
         alert.setContentText(message);
         alert.show();
     }
+
+
 }

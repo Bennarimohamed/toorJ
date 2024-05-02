@@ -1,24 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="459.0" prefWidth="738.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.toor1.controller.Login">
+<AnchorPane prefHeight="459.0" prefWidth="738.0" style="-fx-background-color: #042940;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.toor1.controller.Login">
    <children>
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="269.0" layoutY="91.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../Desktop/logotoorb.png" />
+            <Image url="@./img/logotoor.png" />
          </image>
       </ImageView>
-      <TextField fx:id="emailLOGIN" layoutX="344.0" layoutY="203.0" />
-      <TextField fx:id="passwordLOGIN" layoutX="345.0" layoutY="254.0" />
-      <Label layoutX="244.0" layoutY="207.0" text="email" />
-      <Label layoutX="244.0" layoutY="258.0" text="password" />
-      <Button fx:id="loginButton" layoutX="361.0" layoutY="332.0" mnemonicParsing="false" onAction="#loginB" prefHeight="26.0" prefWidth="67.0" style="-fx-background-color: #1B365C;" text="LOGIN" textFill="WHITE" />
-      <Button fx:id="registerButton" layoutX="275.0" layoutY="332.0" mnemonicParsing="false" onAction="#registerB" style="-fx-background-color: #5D87FF;" text="REGISTER" textFill="WHITE" />
+      <TextField fx:id="emailLOGIN" layoutX="242.0" layoutY="198.0" prefHeight="26.0" prefWidth="256.0" style="-fx-background-radius: 50px;" text="EMAIL" />
+      <TextField fx:id="passwordLOGIN" layoutX="241.0" layoutY="249.0" prefHeight="26.0" prefWidth="256.0" style="-fx-background-radius: 50px;" text="PASSWORD" />
+      <Button fx:id="loginButton" layoutX="378.0" layoutY="333.0" mnemonicParsing="false" onAction="#loginB" prefHeight="26.0" prefWidth="67.0" style="-fx-background-color: #9FC131; -fx-background-radius: 50px;" text="LOGIN" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+      <Button fx:id="registerButton" layoutX="292.0" layoutY="333.0" mnemonicParsing="false" onAction="#registerB" style="-fx-background-color: #005C53; -fx-background-radius: 50px;" text="REGISTER" textFill="WHITE" />
+      <Hyperlink fx:id="ResetPassword" layoutX="302.0" layoutY="295.0" text="RESET YOU PASSWORD" textFill="WHITE" />
    </children>
 </AnchorPane>

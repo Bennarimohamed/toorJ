@@ -139,4 +139,29 @@ public class AddUserController {
         alert.setContentText(message);
         alert.show();
     }
+
+    @FXML
+    void LogoutB(ActionEvent event) { // Ajoutez le paramètre ActionEvent
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/Login.fxml"));
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (Exception e) {
+            System.err.println("Error loading Login.fxml: " + e.getMessage()); // Correction de l'erreur de chargement
+        }
+    }
+
+    public void backToHomeB(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/HomeUser.fxml"));
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (Exception e) {
+            System.err.println("Error loading Login.fxml: " + e.getMessage()); // Correction de l'erreur de chargement
+        }
+    }
 }
