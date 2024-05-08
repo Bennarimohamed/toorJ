@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<AnchorPane id="AnchorPane" prefHeight="369.0" prefWidth="436.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.espirt.pi.GUI.Reservation.AddReservationController">
+    <children>
+        <GridPane alignment="CENTER" hgap="10" vgap="10">
+            <padding>
+                <Insets bottom="20" left="20" right="20" top="20" />
+            </padding>
+            <children>
+                <Label text="Client ID:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                <TextField fx:id="clientIdField" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                
+                <Label text="Hotel ID:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                <TextField fx:id="hotelIdField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                
+                <Label text="Check-in Date:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                <DatePicker fx:id="checkInPicker" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                
+                <Label text="Check-out Date:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                <DatePicker fx:id="checkOutPicker" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                
+                <Label text="Number of Adults:" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                <TextField fx:id="nbAdultsField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                
+                <Label text="Number of Children:" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+                <TextField fx:id="nbChildrenField" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                
+                <Label text="Special Requests:" GridPane.columnIndex="0" GridPane.rowIndex="6" />
+                <TextField fx:id="specialRequestField" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+
+                <Button onAction="#handleAddReservation" text="Add Reservation" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <Button fx:id="backBTN" mnemonicParsing="false" onAction="#goBack" text="Go Back" GridPane.rowIndex="7" />
+            </children>
+         <columnConstraints>
+            <ColumnConstraints />
+            <ColumnConstraints />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+         </rowConstraints>
+        </GridPane>
+    </children>
+</AnchorPane>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<AnchorPane id="AnchorPane" prefHeight="596.0" prefWidth="809.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.espirt.pi.GUI.Hotel.HotelAddController">
+   <children>
+      <HBox prefHeight="596.0" prefWidth="788.0">
+         <children>
+            <VBox prefHeight="470.0" prefWidth="186.0" style="-fx-background-color: #5D87FF;">
+               <children>
+                  <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="125.0" style="-fx-background-color: #1B365C;" text="Hotels" textAlignment="CENTER" textFill="WHITE">
+                     <VBox.margin>
+                        <Insets left="10.0" top="40.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="Arial Bold" size="12.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Button>
+               </children>
+            </VBox>
+            <AnchorPane prefHeight="596.0" prefWidth="601.0">
+               <children>
+                  <Label layoutX="51.0" layoutY="36.0" text="Photo">
+                     <font>
+                        <Font name="Arial" size="30.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="50.0" layoutY="88.0" text="Name">
+                     <font>
+                        <Font name="Arial" size="30.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="25.0" layoutY="132.0" text="Categorie">
+                     <font>
+                        <Font name="Arial" size="30.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="28.0" layoutY="181.0" prefHeight="36.0" prefWidth="125.0" text="Address">
+                     <font>
+                        <Font name="Arial" size="30.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="5.0" layoutY="241.0" text="Description">
+                     <font>
+                        <Font name="Arial" size="30.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="37.0" layoutY="342.0" text="InfoLine">
+                     <font>
+                        <Font name="Arial" size="30.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="40.0" layoutY="294.0" text="PPPN">
+                     <font>
+                        <Font name="Arial" size="30.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="33.0" layoutY="395.0" text="Facilities">
+                     <font>
+                        <Font name="Arial" size="30.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="imageURL" layoutX="163.0" layoutY="39.0" prefHeight="31.0" prefWidth="389.0" />
+                  <TextField fx:id="hotelName" layoutX="163.0" layoutY="91.0" prefHeight="31.0" prefWidth="389.0" />
+                  <TextField fx:id="hotelCategorie" layoutX="163.0" layoutY="134.0" prefHeight="31.0" prefWidth="389.0" />
+                  <TextField fx:id="hotelAdd" layoutX="163.0" layoutY="184.0" prefHeight="31.0" prefWidth="389.0" />
+                  <TextField fx:id="hotelDesc" layoutX="165.0" layoutY="244.0" prefHeight="31.0" prefWidth="389.0" />
+                  <TextField fx:id="ppnHotel" layoutX="163.0" layoutY="297.0" prefHeight="31.0" prefWidth="389.0" />
+                  <TextField fx:id="infoLineHotel" layoutX="165.0" layoutY="345.0" prefHeight="31.0" prefWidth="389.0" />
+                  <TextField fx:id="facilitiesHotel" layoutX="163.0" layoutY="395.0" prefHeight="31.0" prefWidth="389.0" />
+                  <Button fx:id="confirmBtn" layoutX="450.0" layoutY="526.0" mnemonicParsing="false" onAction="#confirmHotel" prefHeight="26.0" prefWidth="132.0" style="-fx-background-color: #5D87FF;" text="Confirm" textFill="WHITE">
+                     <font>
+                        <Font name="Arial Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="backBTN" layoutX="307.0" layoutY="526.0" mnemonicParsing="false" onAction="#goBack" prefHeight="26.0" prefWidth="132.0" style="-fx-background-color: #5D87FF;" text="Back" textFill="WHITE">
+                     <font>
+                        <Font name="Arial Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <CheckBox fx:id="availibiltyHotel" layoutX="163.0" layoutY="445.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="255.0" text="Availibilty">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </CheckBox>
+               </children>
+            </AnchorPane>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

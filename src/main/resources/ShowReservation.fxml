@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<AnchorPane id="AnchorPane" prefHeight="493.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="tn.espirt.pi.GUI.Reservation.ShowReservationController">
+    <children>
+        <VBox alignment="TOP_CENTER" layoutX="100" layoutY="50" spacing="10">
+            <children>
+                <Label style="-fx-font-size: 20px; -fx-font-weight: bold;" text="Reservation Details" />
+                <HBox spacing="10">
+                    <children>
+                        <Label text="Reservation ID:" />
+                        <TextField fx:id="idField" editable="false" />
+                    </children>
+                </HBox>
+                <HBox spacing="10">
+                    <children>
+                        <Label text="Client ID:" />
+                        <TextField fx:id="clientIdField" editable="false" />
+                    </children>
+                </HBox>
+                <HBox spacing="10">
+                    <children>
+                        <Label text="Hotel ID:" />
+                        <TextField fx:id="hotelIdField" editable="false" />
+                    </children>
+                </HBox>
+                <HBox spacing="10">
+                    <children>
+                        <Label text="Check-in Date:" />
+                        <TextField fx:id="checkInField" editable="false" />
+                    </children>
+                </HBox>
+                <HBox spacing="10">
+                    <children>
+                        <Label text="Check-out Date:" />
+                        <TextField fx:id="checkOutField" editable="false" />
+                    </children>
+                </HBox>
+                <HBox spacing="10">
+                    <children>
+                        <Label text="Number of Adults:" />
+                        <TextField fx:id="nbAdultsField" editable="false" />
+                    </children>
+                </HBox>
+                <HBox spacing="10">
+                    <children>
+                        <Label text="Number of Children:" />
+                        <TextField fx:id="nbChildrenField" editable="false" />
+                    </children>
+                </HBox>
+                <HBox spacing="10">
+                    <children>
+                        <Label text="Special Requests:" />
+                        <TextField fx:id="spRequestField" editable="false" />
+                    </children>
+                </HBox>
+                <Button fx:id="backBTN" onAction="#goBack" style="-fx-background-color: #c0c0c0;" text="Back" />
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<AnchorPane prefHeight="470.0" prefWidth="1184.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.espirt.pi.GUI.Reservation.DashboardReservationController">
+    <children>
+        <HBox prefHeight="470.0" prefWidth="1184.0">
+            <children>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #5D87FF;">
+               <children>
+                        <Button layoutX="34.0" layoutY="48.0" mnemonicParsing="false" onAction="#getHotelsView" prefHeight="26.0" prefWidth="125.0" style="-fx-background-color: #1B365C;" text="Hotels" textAlignment="CENTER" textFill="WHITE">
+                            <font>
+                                <Font name="Arial Bold" size="12.0" />
+                            </font>
+                            <opaqueInsets>
+                                <Insets />
+                            </opaqueInsets>
+                        </Button>
+                  <Button layoutX="34.0" layoutY="85.0" mnemonicParsing="false" onAction="#getReservationView" prefHeight="26.0" prefWidth="125.0" style="-fx-background-color: #1B365C;" text="Reservation" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="Arial Bold" size="12.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Button>
+               </children>
+            </AnchorPane>
+                <VBox prefHeight="470.0" prefWidth="1001.0">
+                    <children>
+                        <Text fill="#1b365c" strokeLineCap="ROUND" strokeType="OUTSIDE" strokeWidth="0.0" text="Reservation" textAlignment="CENTER">
+                            <VBox.margin>
+                                <Insets left="230.0" top="20.0" />
+                            </VBox.margin>
+                            <font>
+                                <Font name="System Bold" size="24.0" />
+                            </font>
+                        </Text>
+                        <HBox alignment="TOP_CENTER" prefHeight="70.0" prefWidth="483.0">
+                            <children>
+                                <Button fx:id="showHotelBTN" mnemonicParsing="false" onAction="#showResrv" prefHeight="26.0" prefWidth="132.0" style="-fx-background-color: #5D87FF;" text="SHOW" textFill="WHITE">
+                                    <font>
+                                        <Font name="Arial Bold" size="12.0" />
+                                    </font>
+                                    <HBox.margin>
+                                        <Insets left="10.0" right="10.0" />
+                                    </HBox.margin>
+                                </Button>
+                                <Button fx:id="addResBtn" mnemonicParsing="false" onAction="#addReserv" prefHeight="26.0" prefWidth="132.0" style="-fx-background-color: #5D87FF;" text="ADD" textAlignment="CENTER" textFill="WHITE">
+                                    <font>
+                                        <Font name="Arial Bold" size="12.0" />
+                                    </font>
+                                    <HBox.margin>
+                                        <Insets left="10.0" right="10.0" />
+                                    </HBox.margin>
+                                </Button>
+                                <Button fx:id="editResrvBtn" mnemonicParsing="false" onAction="#editReserv" prefHeight="26.0" prefWidth="132.0" style="-fx-background-color: #5D87FF;" text="EDIT" textFill="WHITE">
+                                    <font>
+                                        <Font name="Arial Bold" size="12.0" />
+                                    </font>
+                                    <HBox.margin>
+                                        <Insets left="10.0" right="10.0" />
+                                    </HBox.margin>
+                                </Button>
+                                <Button fx:id="deleteReservBtn" mnemonicParsing="false" onAction="#deleteReserv" prefHeight="26.0" prefWidth="132.0" style="-fx-background-color: #5D87FF;" text="DELETE" textFill="WHITE">
+                                    <font>
+                                        <Font name="Arial Bold" size="12.0" />
+                                    </font>
+                                    <HBox.margin>
+                                        <Insets left="10.0" right="10.0" />
+                                    </HBox.margin>
+                                </Button>
+                            </children>
+                            <VBox.margin>
+                                <Insets top="45.0" />
+                            </VBox.margin>
+                            <opaqueInsets>
+                                <Insets bottom="80.0" />
+                            </opaqueInsets>
+                        </HBox>
+                        <TableView fx:id="reservTableView" prefHeight="273.0" prefWidth="335.0">
+                            <columns>
+                                <TableColumn fx:id="idTB" prefWidth="38.39996260404587" text="ID" />
+                                <TableColumn fx:id="clientIDTB" maxWidth="157.0" prefWidth="109.0" text="Client ID" />
+                                <TableColumn fx:id="hotelID" maxWidth="192.0" minWidth="6.4000244140625" prefWidth="78.0" text="Hotel ID" />
+                                <TableColumn fx:id="checkINTB" maxWidth="224.0" minWidth="6.4000244140625" prefWidth="183.0" text="Check IN" />
+                                <TableColumn fx:id="checkOutTB" maxWidth="335.0" minWidth="0.0" prefWidth="165.0" text="Check out" />
+                                <TableColumn fx:id="nbAdultTB" maxWidth="369.0" minWidth="0.0" prefWidth="149.0" text="Nb Adult" />
+                                <TableColumn fx:id="nbChildTB" maxWidth="254.0" minWidth="0.0" prefWidth="141.0" text="Nb Children" />
+                                <TableColumn fx:id="sRequestTB" maxWidth="238.0" minWidth="0.0" prefWidth="135.0" text="Request" />
+                            </columns>
+                            <opaqueInsets>
+                                <Insets right="10.0" top="40.0" />
+                            </opaqueInsets>
+                        </TableView>
+                    </children>
+                </VBox>
+            </children>
+        </HBox>
+    </children>
+</AnchorPane>
